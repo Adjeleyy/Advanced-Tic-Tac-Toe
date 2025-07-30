@@ -1,15 +1,13 @@
-// Add event listeners for player selection
 let playerSymbol = null;
 let computerSymbol = null;
-let currentSymbol = 'X'; // Track whose turn it is
-let gameOver = false; // Track if the game is over
+let currentSymbol = 'X'; 
+let gameOver = false; 
 let x_score = 0;
 let o_score = 0;
 let winner = null;
-let size = null; // Default grid size
-let cells = []; // Store the cells for easy access
+let size = null; 
+let cells = []; 
 
-// listen for the selection of player symbol and grid size
 document.getElementById('player-symbol').addEventListener('change', function (event) {
     playerSymbol = event.target.value;
     if (playerSymbol === 'X') {
@@ -18,7 +16,6 @@ document.getElementById('player-symbol').addEventListener('change', function (ev
         computerSymbol = 'X';
     }
 })
-
 document.getElementById('grid-size').addEventListener('change', function (event) {
     size = parseInt(event.target.value);
 });
@@ -52,7 +49,6 @@ function cellClicked(cell) {
     if (checkWinner() && checkWinner()[0]) return;
     switchTurn();
 }
-
 document.getElementById('start-game').addEventListener('click', function () {
     if (!playerSymbol || !size) {
         alert('Please select both a symbol and a grid size.');
@@ -81,7 +77,6 @@ function switchTurn() {
         }
     }
 }
-
 function computerMove() {
     if (gameOver) return;
 
@@ -96,7 +91,6 @@ function computerMove() {
             cells[i].innerHTML = '';
         }
     }
-
     // 2. Try to block the player
     for (let i = 0; i < cells.length; i++) {
         if (cells[i].innerHTML === '') {
@@ -142,9 +136,7 @@ function winMessage() {
     document.getElementById('message').style.display = 'block';
     updateScoreBoard();
 }
-
 function checkWinner(symbol) {
-    // Check rows, columns, and diagonals for a winner dynamically based on grid size
     for (let i = 0; i < size; i++) {
         // Check rows
         let row = [];
@@ -193,7 +185,7 @@ function checkWinner(symbol) {
             document.getElementById('message').innerHTML = "It's a draw!";
             document.getElementById('message').style.display = 'block';
             gameOver = true;
-            return true; // No winner in case of a draw
+            return true; 
         }
     }
     return false;
@@ -218,7 +210,6 @@ for (let cell of cells) {
     currentSymbol = 'X';
     document.getElementById('message').style.display = 'none';
     document.getElementById('turn-message').innerHTML = `Player ${currentSymbol}'s turn`;
-    // If computer is X, let it play first after reset
     if (computerSymbol === 'X') {
         setTimeout(computerMove, 500);
     }
