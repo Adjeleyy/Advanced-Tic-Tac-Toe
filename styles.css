@@ -202,8 +202,6 @@ h2 {
     margin-bottom: 18px;
     box-shadow: none;
 }
-
-/* move version to the top right of the container */
 #version {
     position: absolute;
     top: 1.2rem;
