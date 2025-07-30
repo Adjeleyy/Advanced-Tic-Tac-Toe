@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XO-Battle</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Parkinsans:wght@300..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div id="version">Version 1.2</div>
+        <h1>XO-Battle</h1>
+
+        <div id="player-selection">
+            <select id="player-symbol">
+                <option value="" disabled selected>Select symbol</option>
+                <option value="X">X</option>
+                <option value="O">O</option>
+            </select>
+            <br><br>
+            <select id="grid-size">
+                <option value="" disabled selected>Select grid size</option>
+                <option value="3">3 x 3</option>
+                <option value="4">4 x 4</option>
+                <option value="5">5 x 5</option>
+            </select>
+            <br><br>
+            <button id="start-game">Start Game</button>
+        </div>
+
+        <div id="game-container">
+            <div class="game-info">
+                <div id="scores">
+                    <div class="score"><span id="x-score">X - 0</span></div>
+                    <div class="score"><span id="o-score">O - 0</span></div>
+                </div>
+                <div id="turn-message" class="turn-message"></div>
+            </div>
+            <div id="game-grid"></div>
+            <button id="reset-button">New Game</button>
+        </div>
+    </div>
+    <div id="message"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>
