@@ -19,7 +19,6 @@ document.getElementById('player-symbol').addEventListener('change', function (ev
 document.getElementById('grid-size').addEventListener('change', function (event) {
     size = parseInt(event.target.value);
 });
-
 function createGrid(size) {
     cells = []; // Reset cells array!
     document.getElementById('player-selection').style.display = 'none';
@@ -123,7 +122,6 @@ function computerMove() {
         winMessage();
     }
 }
-
 function winMessage() {
     if (winner === 'X') {
         document.getElementById('message').innerHTML = "Player X wins!";
@@ -200,8 +198,6 @@ function updateScoreBoard() {
     document.getElementById('x-score').innerHTML = `X- ${x_score}`;
     document.getElementById('o-score').innerHTML = `O- ${o_score}`;
 }
-
-//activate new game button
 function newGame() {
 for (let cell of cells) {
         cell.innerHTML = '';
